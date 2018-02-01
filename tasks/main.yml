@@ -50,9 +50,23 @@
     dest: /usr/local/openvpn_as/etc/config.json
     owner: root
     group: root
+    mode: 0600
+  notify:
+    - update config db
+    - restart openvpn_as
+  tags:
+    - openvpn_as
+
+- name: Configure OpenVPN Access Server users
+  become: yes
+  template:
+    src: userdb.json.j2
+    dest: /usr/local/openvpn_as/etc/userdb.json
+    owner: root
+    group: root
     mode: 0644
   notify:
-    - update db
+    - update user db
     - restart openvpn_as
   tags:
     - openvpn_as

@@ -1,9 +1,17 @@
 ---
 # handlers file for openvpn_as
 
-- name: update db
+- name: update config db
   become: yes
   command: ./confdba --load --file=../etc/config.json
+  args:
+    chdir: /usr/local/openvpn_as/scripts
+  tags:
+    - openvpn_as
+
+- name: update user db
+  become: yes
+  command: ./confdba --load --userdb --file=../etc/userdb.json
   args:
     chdir: /usr/local/openvpn_as/scripts
   tags:
