@@ -11,7 +11,7 @@
 
 - name: update user db
   become: yes
-  command: ./confdba --load --userdb --file=../etc/userdb.json
+  shell: ./confdba --wipe --userdb && ./confdba --load --userdb --file=../etc/userdb.json
   args:
     chdir: /usr/local/openvpn_as/scripts
   tags:

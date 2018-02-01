@@ -1,4 +1,24 @@
 {
+{% for group in openvpn_as_user_groups %}
+  "{{ group.name }}": {
+{% for acl in group.acls | default([]) %}
+    "access_to.{{ loop.index0 }}": "+SUBNET:{{ acl }}",
+{% endfor  %}
+    "c2s_dest_s": "false",
+    "c2s_dest_v": "false",
+    "group_declare": "true",
+{% for subnet in group.subnets | default([]) %}
+    "group_subnets.{{ loop.index0 }}": "{{ subnet }}",
+{% endfor  %}
+{% for range in group.ranges | default([]) %}
+    "group_range.{{ loop.index0 }}": "{{ range }}",
+{% endfor  %}
+    "prop_autologin": "false",
+    "prop_deny": "false",
+    "prop_superuser": "false",
+    "type": "group"
+  },
+{% endfor  %}
   "__DEFAULT__": {
     "prop_autogenerate": "true",
     "type": "user_default"
