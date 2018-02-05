@@ -207,6 +207,9 @@
     "cs.cert": "{{ openvpn_as_ssl_certificate.cert }}",
     "cs.ca_bundle": "{{ openvpn_as_ssl_certificate.ca_bundle }}",
 {% endif %}
+{% if openvpn_as_openssl_ciphersuites is defined %}
+    "cs.openssl_ciphersuites": "{{ openvpn_as_openssl_ciphersuites }}",
+{% endif %}
     "aui.eula_version": "2",
     "webui.welcome_shown": "true"
   },
