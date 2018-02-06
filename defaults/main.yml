@@ -47,6 +47,10 @@ openvpn_as_sa_company_name: OpenVPN Technologies, Inc.
 openvpn_as_sa_logo_image_file: ''
 openvpn_as_sa_show_c2s_routes: true
 openvpn_as_sa_ssl_lib: 'openssl'
+openvpn_as_certs_db: sqlite:///~/db/certs.db
+openvpn_as_user_prop_db: sqlite:///~/db/userprop.db
+openvpn_as_config_db: sqlite:///~/db/config.db
+openvpn_as_log_db: sqlite:///~/db/log.db
 
 openvpn_as_vpn_client_config_directives: []
 openvpn_as_vpn_client_routing_inter_client: false

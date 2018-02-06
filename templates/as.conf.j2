@@ -15,10 +15,10 @@ sa.show_c2s_routes=true
 {% else %}
 sa.show_c2s_routes=false
 {% endif %}
-certs_db=sqlite:///~/db/certs.db
-user_prop_db=sqlite:///~/db/userprop.db
-config_db=sqlite:///~/db/config.db
-log_db=sqlite:///~/db/log.db
+certs_db={{ openvpn_as_certs_db }}
+user_prop_db={{ openvpn_as_user_prop_db }}
+config_db={{ openvpn_as_config_db }}
+log_db={{ openvpn_as_log_db }}
 db_retry.interval=1
 db_retry.n_attempts=6
 #db_startup_wait=
