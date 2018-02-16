@@ -9,14 +9,6 @@
   tags:
     - openvpn_as
 
-- name: update user db
-  become: yes
-  shell: ./confdba --wipe --userdb && ./confdba --load --userdb --file=../etc/userdb.json
-  args:
-    chdir: /usr/local/openvpn_as/scripts
-  tags:
-    - openvpn_as
-
 - name: restart openvpn_as
   become: yes
   service:

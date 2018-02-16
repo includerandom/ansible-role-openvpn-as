@@ -57,20 +57,6 @@
   tags:
     - openvpn_as
 
-- name: Configure OpenVPN Access Server users
-  become: yes
-  template:
-    src: userdb.json.j2
-    dest: /usr/local/openvpn_as/etc/userdb.json
-    owner: root
-    group: root
-    mode: 0644
-  notify:
-    - update user db
-    - restart openvpn_as
-  tags:
-    - openvpn_as
-
 - name: Ensure OpenVPN Access Server service is started and enabled on boot
   become: yes
   service:
