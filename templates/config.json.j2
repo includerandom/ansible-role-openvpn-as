@@ -98,7 +98,7 @@
     "sa.initial_run_groups.1": "openvpn_group",
     "sa.ssl_lib": "{{ openvpn_as_sa_ssl_lib }}",
 {% if openvpn_as_vpn_client_config_directives %}
-    "vpn.client.config_text": "{{ openvpn_as_vpn_client_config_directives | join('\n') }}",
+    "vpn.client.config_text": "{{ openvpn_as_vpn_client_config_directives | join('\\n') }}",
 {% else %}
     "vpn.client.config_text": "",
 {% endif %}
@@ -143,7 +143,7 @@
     "vpn.server.daemon.udp.n_daemons": "1",
     "vpn.server.daemon.udp.port": "{{ openvpn_as_vpn_server_daemon_udp_port }}",
 {% if openvpn_as_vpn_server_config_directives %}
-    "vpn.server.config_text": "{{ openvpn_as_vpn_server_config_directives | join('\n') }}",
+    "vpn.server.config_text": "{{ openvpn_as_vpn_server_config_directives | join('\\n') }}",
 {% else %}
     "vpn.server.config_text": "",
 {% endif %}
