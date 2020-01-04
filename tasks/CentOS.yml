@@ -1,2 +1,15 @@
 ---
 # tasks file for openvpn_as (CentOS specific)
+- name: Add OpenVPN AS repository file [RHEL/CentOS]
+  yum:
+    name: "https://as-repository.openvpn.net/as-repo-centos{{ ansible_distribution_major_version }}.rpm"
+    state: present
+  tags:
+    - openvpn_as
+
+- name: Install OpenVPN AS package
+  yum:
+    name: openvpn-as
+    state: present
+  tags:
+    - openvpn_as

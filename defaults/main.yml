@@ -15,6 +15,11 @@ openvpn_as_auth_ldap_host: "My LDAP servers"
 openvpn_as_auth_ldap_use_ssl: "never"
 openvpn_as_auth_ldap_uname_attr: "sAMAccountName"
 openvpn_as_auth_ldap_users_base_dn: "CN=Users, DC=example, DC=net"
+openvpn_as_auth_ldap_bind_dn: "cn=UserAD, DC=example, DC=net"
+openvpn_as_auth_ldap_bind_pw: "UserADPasswor"
+
+# put here filter memberOf or uniquemember
+openvpn_as_auth_ldap_add_req: []
 
 openvpn_as_auth_module_type: "pam"
 
@@ -33,7 +38,7 @@ openvpn_as_cs_cws_ui_offer_win: true
 openvpn_as_cs_https_ip_address: "{{ ansible_default_ipv4.interface }}"
 openvpn_as_cs_https_port: 943
 openvpn_as_cs_ssl_reneg: false
-openvpn_as_cs_tls_version_min: 1.0
+openvpn_as_cs_tls_version_min: 1.2
 
 openvpn_as_host_name: "{{ ansible_default_ipv4.address }}"
 
@@ -88,10 +93,16 @@ openvpn_as_vpn_server_routing_routed_subnets: []
 openvpn_as_vpn_server_static_netmask_bits: 24
 openvpn_as_vpn_server_static_network: ''
 openvpn_as_vpn_server_tls_auth: true
-openvpn_as_vpn_server_tls_version_min: default
+openvpn_as_vpn_server_tls_version_min: 1.2
 
 openvpn_as_vpn_tls_refresh_interval: 360
 
 openvpn_as_xmlrpc_relay_level: 1
 openvpn_as_user_groups: []
 openvpn_as_openssl_ciphersuites: "EECDH+CHACHA20:EECDH+AES128:EECDH+AES256:!RSA:!3DES:!MD5"
+
+#openvpn_as_ssl_certificate:
+#  ca_bundle: /etc/letsencrypt/live/{{ inventory_hostname }}/fullchain.pem
+#  cert: /etc/letsencrypt/live/{{ inventory_hostname }}/cert.pem
+#  priv_key: /etc/letsencrypt/live/{{ inventory_hostname }}/privkey.pem
+...
